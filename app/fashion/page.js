@@ -187,8 +187,8 @@ function Page() {
         </div>
       </section>
 
-      <section className="w-full flex flex-col items-center bg-black shadow-lg">
-        <div className="bg-gradient-to-l from-gray-500 to-gray-900  p-8 rounded-2xl">
+      <section className="w-full flex flex-col items-center bg-black shadow-lg m-0">
+        <div className="bg-gray-900  p-8 rounded-2xl text-gray-400">
           <div className="max-w-3xl">
             <div className="flex relative items-center space-x-4">
               <Image
