@@ -1,0 +1,22 @@
+/* Define the keyframes for the width animation */
+@keyframes expandWidth {
+  0% {
+    width: 0%;
+  }
+  100% {
+    width: 100%;
+  }
+  /* 100% {
+    width: 0%;
+  } */
+}
+
+/* Apply the animation to the images */
+.discoverImage {
+  /* width: 0%; */
+  transform-origin: left;
+
+  animation: expandWidth linear forwards;
+  animation-timeline: scroll(root block); /* Use the root scroll container */
+  animation-range: entry 0% contain 20%; /* Start when the image enters the viewport, end when it's fully visible */
+}

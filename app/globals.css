@@ -19,3 +19,51 @@ body {
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+h1 {
+  font-weight: bold;
+  text-transform: uppercase;
+  position: relative;
+  margin: 20px;
+  color: white;
+}
+@media (max-width: 767px) {
+  h1 {
+    font-size: 2rem !important/* 48px */;
+    line-height: 1;
+  }
+}
+
+nav {
+  z-index: 10;
+}
+
+section {
+  padding: 10px;
+  position: relative;
+  z-index: 10;
+}
+
+.text-gradient {
+  background: linear-gradient(
+    45deg,
+    #00ffff,
+    /* Cyan */ #ff00ff,
+    /* Magenta */ #8000ff,
+    /* Deep Purple */ #ffcc00 /* Gold */
+  );
+  background-size: 400% 400%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradientShift 5s infinite alternate ease-in-out;
+}
+
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 100% 50%;
+  }
+}
