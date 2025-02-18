@@ -121,7 +121,8 @@ function Page() {
         </section>
       </section>
 
-      <section className="flex relative gap-6 h-[80vh] md:h-[60vh] bg-gradient-to-r from-gray-500 to-gray-900 p-6">
+      <section className="flex relative gap-6 h-[80vh] md:h-[60vh] bg-gray-900 md:bg-black">
+        {/*  bg-gradient-to-r from-gray-500 to-gray-900 p-6 */}
         <div className="flex-1 flex-grow relative w-full min-h-1 md:hidden">
           <Image
             src="/fashion/male_model.jpg"
@@ -137,18 +138,18 @@ function Page() {
             alt="Fashion"
             layout="fill"
             objectFit="cover"
-            className="rounded-2xl object-top hidden md:flex"
+            className={`rounded-2xl object-top hidden md:flex ${styles.maskImage}`}
           />
-          <div className="md:absolute p-3 inset-0  md:bg-black/40 flex-1 flex flex-col md:justify-end">
+          <div className="md:absolute p-3 inset-0  md:bg-black/40 flex-1 flex flex-col justify-evenly md:justify-end">
             <h1 className="text-7xl md:text-5xl md:self-start md:w-[80%] md:text-left font-bold text-center text-gradient">
               Discover the future of fashion
             </h1>
-            <p className="text-lg text-gray-600 md:self-end md:w-[80%] md:text-white md:text-md text-justify mt-4 relative">
+            <p className="text-lg text-gray-400 md:self-end md:w-[80%] md:text-white md:text-md text-justify mt-4 relative">
               We blend innovation with style, curating trends that redefine
               elegance. Step into a world where fashion meets the
               future—effortlessly bold, uniquely you.
             </p>
-            <button className="mt-4 px-4 py-2 w-full text-blue-400 border-2 backdrop-blur-md border-blue-500/50 rounded-full">
+            <button className="mt-4 px-4 py-2 w-full text-blue-400 border-2 backdrop-blur-md border-blue-500/50  rounded-full">
               Explore More
             </button>
           </div>
@@ -163,14 +164,14 @@ function Page() {
             alt="Female Fashion Model"
             layout="fill"
             objectFit="cover"
-            className="object-top"
+            className={`rounded-2xl object-top ${styles.maskImage}`}
           />
           {/* Overlay for the single image */}
           <div className="absolute p-3 inset-0 bg-black/50 flex flex-col items-end justify-end">
             <h1 className="text-6xl font-bold text-right text-gradient">
               Discover trendy styles
             </h1>
-            <p className="text-md self-start w-[80%] text-white text-justify mt-2">
+            <p className="text-md self-start w-[80%] text-gray-300 text-justify mt-2">
               Elevate your wardrobe with the latest fashion trends. From bold
               streetwear to timeless classics, we bring you styles that make a
               statement. Stay ahead, stay stylish.
@@ -186,29 +187,31 @@ function Page() {
         </div>
       </section>
 
-      <section className="w-full flex flex-col items-center bg-gradient-to-l from-gray-500 to-gray-900 p-8 rounded-2xl shadow-lg">
-        <div className="max-w-3xl">
-          <div className="flex relative items-center space-x-4">
-            <Image
-              src="/fashion/headshot.jpg"
-              alt="User Profile"
-              width={48}
-              height={48}
-              className="rounded-full border-white border-2"
-            />
-            <div>
-              <h3 className="font-semibold">Sasha Shapere</h3>
-              <p className="text-sm">Fashion Enthusiast</p>
+      <section className="w-full flex flex-col items-center bg-black shadow-lg">
+        <div className="bg-gradient-to-l from-gray-500 to-gray-900  p-8 rounded-2xl">
+          <div className="max-w-3xl">
+            <div className="flex relative items-center space-x-4">
+              <Image
+                src="/fashion/headshot.jpg"
+                alt="User Profile"
+                width={48}
+                height={48}
+                className="rounded-full border-white border-2 w-12 h-12"
+              />
+              <div>
+                <h3 className="font-semibold">Sasha Shapere</h3>
+                <p className="text-sm">Fashion Enthusiast</p>
+              </div>
             </div>
-          </div>
-          <p className="mt-4 max-w-md text-lg leading-relaxed">
-            The quality and design of Amy’s Shoes are unmatched. I love how I
-            can express my style while supporting eco-friendly fashion.
-            Definitely my go-to store for all occasions.
-          </p>
-          <div className="flex justify-between mt-4">
-            <button className="text-gray-400 hover:text-white">&larr;</button>
-            <button className="text-gray-400 hover:text-white">&rarr;</button>
+            <p className="mt-4 max-w-md text-lg leading-relaxed">
+              The quality and design of Amy’s Shoes are unmatched. I love how I
+              can express my style while supporting eco-friendly fashion.
+              Definitely my go-to store for all occasions.
+            </p>
+            <div className="flex justify-between mt-4">
+              <button className="text-gray-400 hover:text-white">&larr;</button>
+              <button className="text-gray-400 hover:text-white">&rarr;</button>
+            </div>
           </div>
         </div>
       </section>

@@ -12,10 +12,10 @@ function Nav() {
   // Reusable links array
   const navLinks = [
     { href: "/", label: "Home" },
-    { href: "/about", label: "About" },
-    { href: "/shop", label: "Shop" },
-    { href: "/blog", label: "Blog" },
-    { href: "/contact", label: "Contact" },
+    { href: "/#", label: "About" },
+    { href: "/#", label: "Shop" },
+    { href: "/#", label: "Blog" },
+    { href: "/#", label: "Contact" },
   ];
 
   // Close menu when clicking outside
@@ -33,36 +33,35 @@ function Nav() {
   }, []);
 
   // Detect scroll direction
- useEffect(() => {
-  let ticking = false; // Flag to prevent multiple calls in the same frame
+  useEffect(() => {
+    let ticking = false; // Flag to prevent multiple calls in the same frame
 
-  const handleScroll = () => {
-    if (!ticking) {
-      requestAnimationFrame(() => {
-        const currentScrollY = window.scrollY;
+    const handleScroll = () => {
+      if (!ticking) {
+        requestAnimationFrame(() => {
+          const currentScrollY = window.scrollY;
 
-        if (currentScrollY > lastScrollY.current) {
-          // Scrolling down
-          setIsScrollingDown(true);
-        } else {
-          // Scrolling up
-          setIsScrollingDown(false);
-        }
+          if (currentScrollY > lastScrollY.current) {
+            // Scrolling down
+            setIsScrollingDown(true);
+          } else {
+            // Scrolling up
+            setIsScrollingDown(false);
+          }
 
-        lastScrollY.current = currentScrollY;
-        ticking = false; // Reset the flag
-      });
+          lastScrollY.current = currentScrollY;
+          ticking = false; // Reset the flag
+        });
 
-      ticking = true; // Set the flag to true while waiting for the next frame
-    }
-  };
+        ticking = true; // Set the flag to true while waiting for the next frame
+      }
+    };
 
-  window.addEventListener("scroll", handleScroll);
-  return () => {
-    window.removeEventListener("scroll", handleScroll);
-  };
-}, []);
-
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
 
   return (
     <nav
@@ -81,7 +80,7 @@ function Nav() {
       </div>
 
       {/* Desktop Links */}
-      <div className="hidden md:flex space-x-6">
+      <div className="flex md:hidden space-x-6">
         {navLinks.map((link) => (
           <Link
             key={link.href}
@@ -95,7 +94,7 @@ function Nav() {
 
       {/* Mobile Menu Toggle (Hamburger Icon) */}
       <button
-        className="md:hidden focus:outline-none"
+        className="hidden md:block focus:outline-none"
         onClick={() => setIsOpen(!isOpen)}
         aria-label="Toggle menu"
         aria-expanded={isOpen}
@@ -121,11 +120,11 @@ function Nav() {
 
       {/* Mobile Menu */}
       <div
-        className={`absolute top-full left-0 w-full bg-black bg-opacity-80 backdrop-blur-md flex flex-col items-center py-4 space-y-4 transition-all duration-300 ease-in-out ${
+        className={`hidden absolute top-full left-0 w-full bg-black bg-opacity-80 backdrop-blur-md md:flex flex-col items-center py-4 space-y-4 transition-all duration-300 ease-in-out ${
           isOpen
             ? "opacity-100 translate-y-0"
             : "opacity-0 -translate-y-4 pointer-events-none"
-        } md:hidden`}
+        } md:block`}
       >
         {navLinks.map((link) => (
           <Link

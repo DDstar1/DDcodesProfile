@@ -20,3 +20,26 @@
   animation-timeline: scroll(root block); /* Use the root scroll container */
   animation-range: entry 0% contain 20%; /* Start when the image enters the viewport, end when it's fully visible */
 }
+
+.maskImage {
+  -webkit-mask-image: radial-gradient(circle, black -100%, transparent 100%);
+  mask-image: radial-gradient(circle, black -100%, transparent 100%);
+
+  -webkit-mask-size: cover;
+  mask-size: cover;
+}
+
+/* .maskImage {
+  -webkit-mask-image: radial-gradient(
+    circle,
+    rgba(0, 0, 0, 1) 30%,
+    rgba(0, 0, 0, 0) 100%
+  );
+  mask-image: radial-gradient(
+    circle,
+    rgba(0, 0, 0, 1) 30%,
+    rgba(0, 0, 0, 0) 100%
+  );
+  -webkit-mask-size: cover;
+  mask-size: cover;
+} */
