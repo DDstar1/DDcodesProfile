@@ -83,7 +83,7 @@ function Nav() {
       <div className="flex md:hidden space-x-6">
         {navLinks.map((link) => (
           <Link
-            key={link.href}
+            key={link.label}
             href={link.href}
             className="hover:text-gray-300 transition-colors"
           >
@@ -128,7 +128,7 @@ function Nav() {
       >
         {navLinks.map((link) => (
           <Link
-            key={link.href}
+            key={link.label}
             href={link.href}
             className="hover:text-gray-300 transition-colors"
             onClick={() => setIsOpen(false)}

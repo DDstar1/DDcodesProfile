@@ -14,6 +14,7 @@ import CategorySlider from "@/my_components/fashion/CategorySlider";
 import Infinite_Horizontal_Slider from "@/my_components/fashion/Infinte_Horizontal_Slider/Infinte_Horizontal_Slider"; // Corrected import
 import Nav from "@/my_components/fashion/NavBar";
 import CurvedText from "@/my_components/fashion/CurvedText/CurvedText";
+import Testimonials from "@/my_components/fashion/Testimonials";
 
 function FixedBgs({ firstRefIsVisible, lastRefIsVisible }) {
   return (
@@ -187,33 +188,8 @@ function Page() {
         </div>
       </section>
 
-      <section className="w-full flex flex-col items-center bg-black shadow-lg m-0">
-        <div className="bg-gray-900  p-8 rounded-2xl text-gray-400">
-          <div className="max-w-3xl">
-            <div className="flex relative items-center space-x-4">
-              <Image
-                src="/fashion/headshot.jpg"
-                alt="User Profile"
-                width={48}
-                height={48}
-                className="rounded-full border-white border-2 w-12 h-12"
-              />
-              <div>
-                <h3 className="font-semibold">Sasha Shapere</h3>
-                <p className="text-sm">Fashion Enthusiast</p>
-              </div>
-            </div>
-            <p className="mt-4 max-w-md text-lg leading-relaxed">
-              The quality and design of Amy’s Shoes are unmatched. I love how I
-              can express my style while supporting eco-friendly fashion.
-              Definitely my go-to store for all occasions.
-            </p>
-            <div className="flex justify-between mt-4">
-              <button className="text-gray-400 hover:text-white">&larr;</button>
-              <button className="text-gray-400 hover:text-white">&rarr;</button>
-            </div>
-          </div>
-        </div>
+      <section className="w-full flex h-42 flex-col items-center bg-black shadow-lg m-0">
+        <Testimonials />
       </section>
 
       <section
