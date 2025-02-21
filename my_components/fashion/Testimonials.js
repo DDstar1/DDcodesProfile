@@ -90,7 +90,7 @@ export default function Testimonials() {
               exit={{ opacity: 0, scale: 0.8, x: translateX }} // Exit animation state
               transition={{
                 scale: { duration: 0.3, ease: "easeInOut" }, // Scale animation
-                x: { duration: 0.3, ease: "easeInOut", delay: 0.1 }, // TranslateX animation with delay
+                x: { duration: 0.3, ease: "easeInOut", delay: 0.2 }, // TranslateX animation with delay
               }}
             >
               <div>
