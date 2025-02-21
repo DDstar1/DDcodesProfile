@@ -93,8 +93,8 @@ export default function Testimonials() {
                 x: { duration: 0.3, ease: "easeInOut", delay: 0.2 }, // TranslateX animation with delay
               }}
             >
-              <div>
-                <div className="flex relative max-h-[90%] items-center space-x-4">
+              <div className="max-h-[90%]">
+                <div className="flex relative items-center space-x-4">
                   <img
                     src={testimonial.image}
                     alt={testimonial.name}
