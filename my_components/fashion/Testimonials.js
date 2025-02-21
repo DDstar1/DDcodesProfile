@@ -94,7 +94,7 @@ export default function Testimonials() {
               }}
             >
               <div>
-                <div className="flex relative items-center space-x-4">
+                <div className="flex relative max-h-[90%] items-center space-x-4">
                   <img
                     src={testimonial.image}
                     alt={testimonial.name}
