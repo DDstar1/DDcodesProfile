@@ -1,5 +1,5 @@
 import { motion, AnimatePresence } from "framer-motion";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const testimonials = [
   {
@@ -41,24 +41,29 @@ const testimonials = [
 ];
 
 export default function Testimonials() {
-  const [testimonialsList, setTestimonialsList] = useState(testimonials); // State to manage the reordered list
-  const total = 5; // Total number of testimonials displayed at once
+  const [testimonialsList, setTestimonialsList] = useState(testimonials);
+  const total = 5;
 
-  // Handle click for the left button
+  const [screenWidth, setScreenWidth] = useState(0);
+
+  useEffect(() => {
+    const updateWidth = () => setScreenWidth(window.innerWidth);
+    updateWidth(); // Initial call
+    window.addEventListener("resize", updateWidth);
+    return () => window.removeEventListener("resize", updateWidth);
+  }, []);
+
   const handlePrev = () => {
     setTestimonialsList((prev) => {
-      const lastItem = prev[prev.length - 1]; // Get the last item
-      const newList = [lastItem, ...prev.slice(0, -1)]; // Move the last item to the beginning
-      return newList;
+      const lastItem = prev[prev.length - 1];
+      return [lastItem, ...prev.slice(0, -1)];
     });
   };
 
-  // Handle click for the right button
   const handleNext = () => {
     setTestimonialsList((prev) => {
-      const [firstItem, ...rest] = prev; // Get the first item
-      const newList = [...rest, firstItem]; // Move the first item to the end
-      return newList;
+      const [firstItem, ...rest] = prev;
+      return [...rest, firstItem];
     });
   };
 
@@ -69,31 +74,48 @@ export default function Testimonials() {
     >
       <AnimatePresence>
         {testimonialsList.slice(0, total).map((testimonial, index) => {
-          const middleIndex = Math.floor(total / 2); // Middle index (e.g., 2 for 5 items)
-          const distanceFromMiddle = Math.abs(index - middleIndex); // Distance from the middle index
-
-          // Calculate scale and translateX dynamically
-          const scale = 1 - distanceFromMiddle * 0.1; // Scale decreases by 0.1 for each step away from the middle
-          const translateX = (index - middleIndex) * 30; // Move left or right by 20% for each step away from the middle
+          const middleIndex = Math.floor(total / 2);
+          const distanceFromMiddle = Math.abs(index - middleIndex);
+          const blurAmount = distanceFromMiddle * 1.5;
+          const scale = 1 - distanceFromMiddle * 0.1;
+          const translateX =
+            (index - middleIndex) * (screenWidth > 900 ? 100 : 50);
 
           return (
             <motion.div
               className="min-w-64 border-white border-2 bg-gray-900 absolute h-full top-0 rounded-2xl p-4 flex flex-col justify-between"
               style={{
-                transform: `translateX(${translateX}%) scale(${scale})`, // Dynamic transform
-                zIndex: total - distanceFromMiddle, // Higher z-index for elements closer to the middle
-                opacity: scale, // Opacity decreases as scale decreases
+                transform: `translateX(${translateX}%) scale(${scale})`,
+                zIndex: total - distanceFromMiddle,
+                opacity: scale,
+                filter: `blur(${blurAmount}px)`, // Apply blur
               }}
-              key={testimonial.name} // Use a unique key for animation
-              initial={{ opacity: 0, scale: 0.8, x: translateX }} // Initial animation state
-              animate={{ opacity: scale, scale, x: translateX }} // Animate to this state
-              exit={{ opacity: 0, scale: 0.8, x: translateX }} // Exit animation state
+              key={testimonial.name}
+              initial={{
+                opacity: 0,
+                scale: 0.8,
+                x: translateX,
+                filter: "blur(3px)",
+              }}
+              animate={{
+                opacity: scale,
+                scale,
+                x: translateX,
+                filter: `blur(${blurAmount}px)`,
+              }}
+              exit={{
+                opacity: 0,
+                scale: 0.8,
+                x: translateX,
+                filter: "blur(3px)",
+              }}
               transition={{
-                scale: { duration: 0.3, ease: "easeInOut" }, // Scale animation
-                x: { duration: 0.3, ease: "easeInOut", delay: 0.2 }, // TranslateX animation with delay
+                scale: { duration: 0.3, ease: "easeInOut" },
+                x: { duration: 0.3, ease: "easeInOut", delay: 0.2 },
+                filter: { duration: 0.3, ease: "easeInOut" },
               }}
             >
-              <div className="max-h-[90%]">
+              <div className="h-[90%] overflow-clip">
                 <div className="flex relative items-center space-x-4">
                   <img
                     src={testimonial.image}
