@@ -6,7 +6,7 @@ const testimonials = [
     name: "Sasha Shapere",
     role: "Fashion Enthusiast",
     image: "/fashion/headshot.jpg",
-    text: "The quality and design of Amy’s Shoes are unmatched. I love how I can express my style while supporting eco-friendly fashion.",
+    text: "The quality and design of Amy’s Shoes are unmatched. I love how I can express my style while supporting eco-friendly fashion. Definitely my go-to store for all occasions.",
   },
   {
     name: "Jordan Styles",
@@ -85,10 +85,13 @@ export default function Testimonials() {
                 opacity: scale, // Opacity decreases as scale decreases
               }}
               key={testimonial.name} // Use a unique key for animation
-              initial={{ opacity: 0, x: translateX }} // Initial animation state
-              animate={{ opacity: scale, x: translateX, scale }} // Animate to this state
-              exit={{ opacity: 0, x: translateX }} // Exit animation state
-              transition={{ type: "spring", stiffness: 100, damping: 20 }} // Smooth spring animation
+              initial={{ opacity: 0, scale: 0.8, x: translateX }} // Initial animation state
+              animate={{ opacity: scale, scale, x: translateX }} // Animate to this state
+              exit={{ opacity: 0, scale: 0.8, x: translateX }} // Exit animation state
+              transition={{
+                scale: { duration: 0.3, ease: "easeInOut" }, // Scale animation
+                x: { duration: 0.3, ease: "easeInOut", delay: 0.1 }, // TranslateX animation with delay
+              }}
             >
               <div>
                 <div className="flex relative items-center space-x-4">
