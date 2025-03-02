@@ -5,6 +5,7 @@ import ScrollTestimonialHorizontal from "@/my_components/webdev/ScrollTestimonia
 import Floating_3D from "@/my_components/webdev/Floating_3D";
 import Image from "next/image";
 import Projects from "@/my_components/webdev/Projects";
+import Form from "@/my_components/webdev/Form";
 
 function Page() {
   return (
@@ -113,6 +114,60 @@ function Page() {
         <ScrollTestimonialHorizontal size="lg" reverse />
         <ScrollTestimonialHorizontal size="lg" />
         {/* <ScrollTestimonialHorizontal /> */}
+      </section>
+      <section className="flex md:flex-col gap-6 p-6 bg-gray-100 rounded-lg items-center">
+        {/* Contact Info */}
+        <div className="flex flex-1 flex-col justify-center items-center text-center p-4">
+          <p className="text-7xl font-semibold px-4 py-2 rounded-lg">
+            Let's Get in Touch
+          </p>
+          <p className="text-gray-600 mt-2 underline">
+            abhuluimendestiny@gmail.com
+          </p>
+        </div>
+
+        {/* Contact Form */}
+        <div className="flex-1 bg-white p-6 rounded-lg shadow-md">
+          <Form />
+        </div>
+      </section>
+      <section className="flex flex-col bg-black text-white">
+        <div className="grid grid-cols-4 gap-4">
+          {/* First Column (50% Width) - Name */}
+          <div className="col-span-2 text-7xl p-4 flex items-center justify-center font-bold">
+            ALEX TURNER
+          </div>
+          {/* Second Column (25% Width) - Social Handles */}
+          <div className="p-4 text-sm flex flex-col items-start justify-start gap-2">
+            <h3 className="text-lg font-semibold text-left w-full">Socials</h3>
+            <p>📸 Instagram: @alexturner_ig</p>
+            <p>📘 Facebook: Alex Turner</p>
+            <p>📱 WhatsApp: +1234567890</p>
+            <p>🔗 LinkedIn: linkedin.com/in/alexturner</p>
+            <p>🎨 Behance: behance.net/alexturner</p>
+          </div>
+
+          {/* Third Column (25% Width) - Location */}
+          <div className="p-4 text-sm flex flex-col items-start justify-start">
+            <h3 className="text-lg font-semibold text-left w-full">Location</h3>
+            <p>Africa, Nigeria</p>
+            <p>Lagos State, Ikeja</p>
+            <p>Allen Avenue</p>
+            <p>No. 25</p>
+          </div>
+        </div>
+        <div className="h-32 flex">
+          {[5, 6, 7, 8, 9, 10].map((num) => (
+            <div key={num} className="relative flex-1">
+              <Image
+                fill
+                className="object-contain"
+                src={`/webdev/floating3d${num}.png`}
+                alt={`Floating 3D Image ${num}`}
+              />
+            </div>
+          ))}
+        </div>
       </section>
     </main>
   );
