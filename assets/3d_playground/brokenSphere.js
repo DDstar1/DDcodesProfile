@@ -79,7 +79,6 @@ export function createSplitSphere({
 
   // Extract and convert colors
   const converted_colors = extractedColors(color_list);
-  // const colors = ["red", "blue", "green", "yellow", "purple", "orange", "cyan"];
   const meshes = [];
 
   for (let i = 0; i < numSections; i++) {
@@ -105,13 +104,12 @@ export function createSplitSphere({
   let pauseTime = 0;
   let isPaused = false;
 
-  function animate() {
-    requestAnimationFrame(animate);
-
+  // Expose an update function for the parent scene to call
+  function update(deltaTime) {
     if (isPaused) {
       if (performance.now() - pauseTime >= pauseDuration) {
         isPaused = false;
-        time += 0.02;
+        time += deltaTime;
       }
       return;
     }
@@ -170,8 +168,8 @@ export function createSplitSphere({
       return;
     }
 
-    time += 0.02;
+    time += deltaTime;
   }
 
-  animate();
+  return { update };
 }
