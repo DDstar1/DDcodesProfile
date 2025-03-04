@@ -9,8 +9,8 @@ let default_color_list = [
 
 function extractedColors(list) {
   return list.map((colorObj) => {
-    const vectorColor = colorObj.color;
-    return new THREE.Color(vectorColor.x, vectorColor.y, vectorColor.z);
+    const vectorColor = colorObj.color; // Get the Vector3 color
+    return new THREE.Color(vectorColor.x, vectorColor.y, vectorColor.z); // Convert to THREE.Color
   });
 }
 
@@ -21,10 +21,11 @@ export function createSplitSphere({
   maxSeparation = 2,
   numSections = 70,
   pauseDuration = 4000, // 4 seconds
-  scatterAxis = "xyz",
+  scatterAxis = "xyz", // Options: "x", "y", "z", "xy", "xz", "yz", "xyz"
   color_list = default_color_list,
 }) {
   const geometry = new THREE.SphereGeometry(1, 32, 32);
+
   const sectionGeometries = Array.from(
     { length: numSections },
     () => new THREE.BufferGeometry()
@@ -76,7 +77,9 @@ export function createSplitSphere({
     );
   }
 
+  // Extract and convert colors
   const converted_colors = extractedColors(color_list);
+  // const colors = ["red", "blue", "green", "yellow", "purple", "orange", "cyan"];
   const meshes = [];
 
   for (let i = 0; i < numSections; i++) {
@@ -102,16 +105,13 @@ export function createSplitSphere({
   let pauseTime = 0;
   let isPaused = false;
 
-  function update(deltaTime) {
-    console.log(`Updating split sphere, deltaTime: ${deltaTime}`); // Debugging line
-    console.log("isPaused ", isPaused);
-    print("pauseTime ", pauseTime);
-    // print("pauseTime ", pauseTime)
+  function animate() {
+    requestAnimationFrame(animate);
+
     if (isPaused) {
-      pauseTime += deltaTime * 1000; // Convert deltaTime to milliseconds
-      if (pauseTime >= pauseDuration) {
+      if (performance.now() - pauseTime >= pauseDuration) {
         isPaused = false;
-        pauseTime = 0;
+        time += 0.02;
       }
       return;
     }
@@ -122,6 +122,7 @@ export function createSplitSphere({
     for (let i = 0; i < numSections; i++) {
       const angle = (i / numSections) * Math.PI * 2;
 
+      // Calculate displacement based on scatterAxis
       let dx = 0,
         dy = 0,
         dz = 0;
@@ -165,11 +166,12 @@ export function createSplitSphere({
 
     if (Math.abs(sineValue) < 0.01 && !isPaused) {
       isPaused = true;
+      pauseTime = performance.now();
       return;
     }
 
-    time += deltaTime; // Use deltaTime instead of a fixed value
+    time += 0.02;
   }
 
-  return { update };
+  animate();
 }

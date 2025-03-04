@@ -18,7 +18,7 @@ const MoonScene = ({
 
   useEffect(() => {
     if (!mountRef.current) return;
-
+    console.log(selectedColorGroup);
     const scene = new THREE.Scene();
     const camera = new THREE.PerspectiveCamera(
       75,
@@ -36,29 +36,29 @@ const MoonScene = ({
     controls.enableDamping = true;
 
     // Add ambient light
-    const ambientLight = new THREE.AmbientLight(0xffffff, 0.2);
+    const ambientLight = new THREE.AmbientLight(0xffffff, 0.2); // Color: white, Intensity: 0.5
     scene.add(ambientLight);
 
     // Add directional light
     const directionalLight = new THREE.DirectionalLight(0xffffff, 1);
-    directionalLight.position.set(5, 5, 5);
+    directionalLight.position.set(5, 5, 5); // Light source position
     scene.add(directionalLight);
 
     // Add grid helper
     const gridHelper = new THREE.GridHelper(10, 50);
-    gridHelper.position.y = -2;
+    gridHelper.position.y = -2; // Adjust the height of the grid
     scene.add(gridHelper);
 
+    console.log(headColor);
     // Load 3D model
     loadModel({
-      scene,
-      position: new THREE.Vector3(0, 1, 0),
-      scale: 0.5,
-      color: headColor,
+      scene, // The Three.js scene
+      position: new THREE.Vector3(0, 1, 0), // Position of the model
+      scale: 0.5, // Scale of the model
+      // color: "#00ff00", // Color of the model
+      color: headColor, // Color of the model
     });
-
-    // Create split sphere
-    const splitSphere = createSplitSphere({
+    createSplitSphere({
       scene,
       position: new THREE.Vector3(0, 1, 0),
       scale: 1.5,
@@ -78,22 +78,9 @@ const MoonScene = ({
     });
 
     // Animation loop
-    let previousTime = 0;
-    const animate = (currentTime) => {
+    const animate = () => {
       requestAnimationFrame(animate);
-      console.log("Animation frame called"); // Debugging line
-
-      const deltaTime = (currentTime - previousTime) / 1000; // Convert to seconds
-      console.log("deltaTime", deltaTime); // Debugging line
-      previousTime = currentTime;
-
-      // Update split sphere
-      splitSphere.update(deltaTime);
-
-      // Update uniforms for shaders
       uniforms.mousePosition.value.copy(pointerPos);
-
-      // Render the scene
       renderer.render(scene, camera);
       controls.update();
     };
