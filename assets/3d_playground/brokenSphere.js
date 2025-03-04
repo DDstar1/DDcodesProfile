@@ -9,8 +9,8 @@ let default_color_list = [
 
 function extractedColors(list) {
   return list.map((colorObj) => {
-    const vectorColor = colorObj.color; // Get the Vector3 color
-    return new THREE.Color(vectorColor.x, vectorColor.y, vectorColor.z); // Convert to THREE.Color
+    const vectorColor = colorObj.color;
+    return new THREE.Color(vectorColor.x, vectorColor.y, vectorColor.z);
   });
 }
 
@@ -21,11 +21,10 @@ export function createSplitSphere({
   maxSeparation = 2,
   numSections = 70,
   pauseDuration = 4000, // 4 seconds
-  scatterAxis = "xyz", // Options: "x", "y", "z", "xy", "xz", "yz", "xyz"
+  scatterAxis = "xyz",
   color_list = default_color_list,
 }) {
   const geometry = new THREE.SphereGeometry(1, 32, 32);
-
   const sectionGeometries = Array.from(
     { length: numSections },
     () => new THREE.BufferGeometry()
@@ -77,7 +76,6 @@ export function createSplitSphere({
     );
   }
 
-  // Extract and convert colors
   const converted_colors = extractedColors(color_list);
   const meshes = [];
 
@@ -104,12 +102,16 @@ export function createSplitSphere({
   let pauseTime = 0;
   let isPaused = false;
 
-  // Expose an update function for the parent scene to call
   function update(deltaTime) {
+    console.log(`Updating split sphere, deltaTime: ${deltaTime}`); // Debugging line
+    console.log("isPaused ", isPaused);
+    print("pauseTime ", pauseTime);
+    // print("pauseTime ", pauseTime)
     if (isPaused) {
-      if (performance.now() - pauseTime >= pauseDuration) {
+      pauseTime += deltaTime * 1000; // Convert deltaTime to milliseconds
+      if (pauseTime >= pauseDuration) {
         isPaused = false;
-        time += deltaTime;
+        pauseTime = 0;
       }
       return;
     }
@@ -120,7 +122,6 @@ export function createSplitSphere({
     for (let i = 0; i < numSections; i++) {
       const angle = (i / numSections) * Math.PI * 2;
 
-      // Calculate displacement based on scatterAxis
       let dx = 0,
         dy = 0,
         dz = 0;
@@ -164,11 +165,10 @@ export function createSplitSphere({
 
     if (Math.abs(sineValue) < 0.01 && !isPaused) {
       isPaused = true;
-      pauseTime = performance.now();
       return;
     }
 
-    time += deltaTime;
+    time += deltaTime; // Use deltaTime instead of a fixed value
   }
 
   return { update };

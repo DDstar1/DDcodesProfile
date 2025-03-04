@@ -78,13 +78,14 @@ const MoonScene = ({
     });
 
     // Animation loop
-    let deltaTime = 0;
-    const animate = () => {
+    let previousTime = 0;
+    const animate = (currentTime) => {
       requestAnimationFrame(animate);
+      console.log("Animation frame called"); // Debugging line
 
-      // const deltaTime = (currentTime - previousTime) / 1000; // Convert to seconds
-      // const deltaTime = previousTime; // Convert to seconds
-      deltaTime += 0.02;
+      const deltaTime = (currentTime - previousTime) / 1000; // Convert to seconds
+      console.log("deltaTime", deltaTime); // Debugging line
+      previousTime = currentTime;
 
       // Update split sphere
       splitSphere.update(deltaTime);
