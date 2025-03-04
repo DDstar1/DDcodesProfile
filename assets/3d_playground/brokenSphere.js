@@ -20,7 +20,7 @@ export function createSplitSphere({
   scale = 1,
   maxSeparation = 2,
   numSections = 70,
-  pauseDuration = 4000, // 4 seconds
+  pauseDuration = 3000, // 4 seconds
   scatterAxis = "xyz", // Options: "x", "y", "z", "xy", "xz", "yz", "xyz"
   color_list = default_color_list,
 }) {
