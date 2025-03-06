@@ -75,7 +75,7 @@ export default function Home() {
         sphereNumSections={sphereNumSections}
       />
       {isSettingsOpen && (
-        <div className="absolute text-black left-0 bottom-0 bg-white rounded-lg p-6 md:w-[80%] w-60 max-h-[60vh] overflow-y-auto">
+        <div className="absolute text-black left-0 bottom-0 bg-white rounded-lg p-6 md:w-60 w-[80%] max-h-[60vh] overflow-y-auto">
           <h2 className="text-2xl font-bold mb-4">Scene Configuration</h2>
           <div className="mb-4">
             <label className="block mb-2 font-medium">Color Group</label>
