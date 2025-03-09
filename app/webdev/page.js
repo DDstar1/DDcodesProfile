@@ -6,20 +6,15 @@ import Floating_3D from "@/my_components/webdev/Floating_3D";
 import Image from "next/image";
 import Projects from "@/my_components/webdev/Projects";
 import Form from "@/my_components/webdev/Form";
+import MagneticImage from "@/my_components/webdev/Magnetic";
 
 function Page() {
   return (
     <main>
       <NavBar />
-      <section className="relative h-screen bg-brown">
-        <div className="absolute z-20 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-[70%] aspect-square">
-          <Image
-            src="/webdev/cartoon_head.png"
-            alt="Centered Image"
-            fill
-            className="object-contain"
-          />
-        </div>
+      <section className="relative h-screen w-screen overflow-hidden bg-brown">
+        <MagneticImage src="/webdev/cartoon_head.png" alt="Magnetic Image" />
+
         <h1 className="text-[150px] p-0 m-2 text-center">hi, i'm alex</h1>
         <div className="flex gap-2 justify-around">
           <div className="bg-black flex-1 z-30 text-lg">
