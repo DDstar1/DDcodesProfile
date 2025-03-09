@@ -33,11 +33,17 @@ const projects = [
     id: "04",
     client: "Future Tech Labs",
     bgColor: "bg-yellow-500",
+    firstImage: "/webdev/3d_camera_a1.jpg",
+    secondImage: "/webdev/3d_camera_a2.jpg",
+    thirdImage: "/webdev/3d_camera_a3.jpg",
   },
   {
     id: "05",
     client: "Visionary Designs",
     bgColor: "bg-purple-500",
+    firstImage: "/webdev/3d_mockup_a1.jpg",
+    secondImage: "/webdev/3d_mockup_a2.jpg",
+    thirdImage: "/webdev/3d_mockup_a3.jpg",
   },
 ];
 
