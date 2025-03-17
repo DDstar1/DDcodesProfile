@@ -67,7 +67,7 @@ function Nav() {
     <nav
       ref={navRef}
       role="navigation"
-      className="fixed top-0 left-0 w-full bg-black bg-opacity-70 text-white px-6 py-4 flex items-center justify-between gap-5 backdrop-blur-md z-60 transition-transform duration-300 ease-in-out transform origin-top"
+      className="fixed top-0 left-0 border-b-white w-full bg-black bg-opacity-70 text-white px-6 py-4 flex items-center justify-between gap-5 backdrop-blur-md z-[1000] transition-transform duration-300 ease-in-out transform origin-top"
       style={{
         transform: isScrollingDown ? "scaleY(0)" : "scaleY(1)",
       }}

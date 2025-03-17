@@ -60,9 +60,10 @@ function Page() {
   return (
     <>
       <FixedBgs firstRefIsVisible={firstInView} lastRefIsVisible={lastInView} />
+      <Nav />
       <section className={`relative w-screen h-screen`}>
-        <Nav />
-        <h1 className="hidden text-4xl font-bold fixed inset-0 md:flex justify-center items-center">
+      
+        <h1 className="hidden h-full text-4xl font-bold fixed inset-0 md:flex justify-center items-center">
           <CurvedText my_letter={"Addicted To Fashion "} spacing={100} />
         </h1>
         <div
@@ -94,9 +95,9 @@ function Page() {
         </span>
       </Infinite_Horizontal_Slider>
 
-      <section className={`bg-black w-screen overflow-hidden`}>
-        <h1>Discover</h1>
-        <section className="flex justify-evenly gap-5 p-6 flex-wrap">
+      <section className={`bg-black w-screen !p-[2px] overflow-hidden`}>
+        <h1 className='text-4xl'>Discover</h1>
+        <div className="flex justify-evenly gap-5 p-6 flex-wrap">
           {[...Array(4)].map((_, index) => (
             <div
               key={index}
@@ -119,7 +120,7 @@ function Page() {
               </div>
             </div>
           ))}
-        </section>
+        </div>
       </section>
 
       <section className="flex relative gap-6 h-[80vh] md:h-[60vh] bg-gray-900 md:bg-black">
@@ -188,7 +189,7 @@ function Page() {
         </div>
       </section>
 
-      <section className="w-full flex h-42 flex-col items-center bg-black shadow-lg m-0">
+      <section className="w-full flex flex-col items-center bg-black shadow-lg m-0">
         <Testimonials />
       </section>
 
