@@ -104,7 +104,7 @@ function Page() {
           </div>
         </div>
       </section>
-      <section className="relative bg-gradient-to-t from-black to-purple-900 px-20">
+      <section className="relative bg-gradient-to-t from-black via-purple-900 to-red-500 px-20">
         <SplashShapeDivider color1="black" />
 
         <h1 className="text-6xl text-right font-bold">Projects</h1>
