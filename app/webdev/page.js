@@ -37,7 +37,7 @@ function Page() {
         {/* <ScrollHorizontal size="lg" /> */}
       </section>
       <section className="bg-gradient-to-b from-purple-500 to-black">
-        <div className=" text-center flex flex-col items-center justify-evenly w-screen gap-10 h-[70vh]  relative">
+        <div className=" text-center flex flex-col items-center justify-evenly w-screen gap-10 h-[70vh] relative">
           <SplashShapeDivider color1="black" />
           <h2 className="text-9xl font-bold text-white top-1">About Me</h2>
           <div className="leading-10 text-white font-semibold text-xl">
