@@ -37,11 +37,10 @@ h1 {
 }
 
 nav {
-  z-index: 10;
+  z-index: 1000;
 }
 
 section {
-  padding: 10px;
   position: relative;
   z-index: 10;
 }
