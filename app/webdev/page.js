@@ -37,11 +37,11 @@ function Page() {
         {/* <ScrollHorizontal size="lg" /> */}
       </section>
       <section className="bg-gradient-to-b from-purple-500 to-black">
-        <div className=" text-center flex flex-col items-center justify-evenly w-screen gap-10 h-[70vh] relative">
+        <div className=" text-justify flex flex-col items-center justify-evenly w-screen gap-10 h-[70vh] relative">
           <SplashShapeDivider color1="black" />
           <h2 className="text-9xl font-bold text-white top-1">About Me</h2>
           <div className="leading-10 text-white font-semibold text-xl">
-            <p className="max-w-[50%] mx-auto">
+            <p className="max-w-[70%] mx-auto">
               With over five years of experience in design, I specialize in
               branding, web design, and user experience. My passion lies in
               crafting visually stunning and highly functional designs that not
@@ -51,7 +51,7 @@ function Page() {
               on transforming ideas into reality.
             </p>
 
-            <p className="max-w-[50%] mx-auto mt-4">
+            <p className="max-w-[70%] mx-auto mt-4">
               Let’s create something amazing together—something that not only
               looks great but also leaves a lasting impression. Ready to bring
               your vision to life? Let’s make it happen.
