@@ -91,7 +91,7 @@ const ScrollTestimonialHorizontal = ({ reverse = false, className = "" }) => {
 
               {/* Testimonial Text */}
               <div className="text-left w-64">
-                <p className="text-sm text-gray-300 leading-relaxed">{text}</p>
+                <p className="text-sm text-gray-800 leading-relaxed">{text}</p>
                 <p className="font-bold text-gray-400 mt-2">— {company}</p>
               </div>
             </div>

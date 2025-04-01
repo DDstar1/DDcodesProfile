@@ -2,7 +2,7 @@ import React from "react";
 
 const SplashShapeDivider = ({ color1 }) => {
   return (
-    <div className="absolute w-full h-20 left-0 top-0 ">
+    <div className="absolute w-full h-20 left-0 -top-1 ">
       <svg
         xmlns="http://www.w3.org/2000/svg"
         preserveAspectRatio="none"

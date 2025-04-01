@@ -1,42 +1,54 @@
-import React from "react";
-import Image from "next/image";
+"use client";
 
-function Floating_3D() {
+import Image from "next/image";
+import { motion, useScroll, useTransform } from "framer-motion";
+import React, { useEffect, useRef } from "react";
+
+function Floating_3D({
+  img_src = "/webdev/floating3d4.png",
+  from_left = false,
+  top_animate_pos = ["0%", "10%"],
+}) {
+  const first_floating_element = useRef(null);
+  const image_size = 240;
+
+  const { scrollYProgress } = useScroll({
+    target: first_floating_element,
+    offset: ["end end", "end center"],
+  });
+
+  const horizontal_displacement = useTransform(
+    scrollYProgress,
+    [0, 1],
+    [`-${image_size}px`, `-${image_size / 3}px`]
+  );
+  const top = useTransform(scrollYProgress, [1, 0], top_animate_pos);
+
+  useEffect(() => {
+    const unsubscribe = scrollYProgress.on("change", () =>
+      console.log(scrollYProgress.current)
+    );
+    return () => unsubscribe();
+  }, [scrollYProgress]);
+
   return (
-    <>
-      <div className="absolute z-20 top-10 left-10 w-52 h-52">
-        <Image
-          src="/webdev/floating3d4.png"
-          alt="Centered Image"
-          fill
-          className="object-contain"
-        />
-      </div>
-      <div className="absolute z-20 top-10 right-5 w-52 h-52">
-        <Image
-          src="/webdev/floating3d1.png"
-          alt="Centered Image"
-          fill
-          className="object-contain"
-        />
-      </div>{" "}
-      <div className="absolute z-20 top-[50%] left-5 w-52 h-52">
-        <Image
-          src="/webdev/floating3d2.png"
-          alt="Centered Image"
-          fill
-          className="object-contain"
-        />
-      </div>{" "}
-      <div className="absolute z-20 top-[50%] right-5 w-52 h-52">
-        <Image
-          src="/webdev/floating3d3.png"
-          alt="Centered Image"
-          fill
-          className="object-contain"
-        />
-      </div>
-    </>
+    <motion.div
+      ref={first_floating_element}
+      style={{
+        [from_left ? "left" : "right"]: horizontal_displacement,
+        top,
+        width: `${image_size}px`,
+        height: `${image_size}px`,
+      }}
+      className="absolute"
+    >
+      <Image
+        src={img_src}
+        alt="Floating Image"
+        fill
+        className="object-contain"
+      />
+    </motion.div>
   );
 }
 

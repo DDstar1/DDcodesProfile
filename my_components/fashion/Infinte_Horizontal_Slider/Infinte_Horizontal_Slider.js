@@ -1,12 +1,12 @@
 import React from "react";
 import styles from "./Infinte_Horizontal_Slider.module.css";
 
-function Infinite_Horizontal_Slider({ children, count = 15 ,className="" }) {
+function Infinite_Horizontal_Slider({ children, count = 15, className = "" }) {
   return (
     <section
-    className={`bg-black z-50 w-screen border-white border-2 overflow-hidden ${className}`}
-    aria-label="Infinite Horizontal Slider"
-  >
+      className={`bg-black z-50 w-screen border-1 overflow-hidden ${className}`}
+      aria-label="Infinite Horizontal Slider"
+    >
       <div className={styles.sliderWrapper}>
         {[...Array(count)].map((_, index) => (
           <div

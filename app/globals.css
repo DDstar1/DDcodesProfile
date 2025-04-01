@@ -1,6 +1,5 @@
 @import "tailwindcss";
 
-
 @custom-variant 2xl (@media (max-width: 96rem));
 @custom-variant xl (@media (max-width: 80rem));
 @custom-variant lg (@media (max-width: 64rem));
@@ -43,12 +42,9 @@ h1 {
   }
 }
 
-
-
-section {
+/* section {
   padding: 30px;
-
-}
+} */
 
 .text-gradient {
   background: linear-gradient(
@@ -71,5 +67,17 @@ section {
   }
   100% {
     background-position: 100% 50%;
+  }
+}
+
+@media (min-width: 768px) {
+  .custom-top {
+    top: auto !important;
+  }
+}
+
+@media (max-width: 767px) {
+  .custom-top {
+    top: calc(100px + var(--index, 0) * 20px);
   }
 }

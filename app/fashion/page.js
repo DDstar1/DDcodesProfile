@@ -61,8 +61,7 @@ function Page() {
     <>
       <FixedBgs firstRefIsVisible={firstInView} lastRefIsVisible={lastInView} />
       <Nav />
-      <section className={`relative w-screen h-screen`}>
-      
+      <section className={`relative p-10 w-screen h-screen`}>
         <h1 className="hidden h-full text-4xl font-bold fixed inset-0 md:flex justify-center items-center">
           <CurvedText my_letter={"Addicted To Fashion "} spacing={100} />
         </h1>
@@ -95,8 +94,8 @@ function Page() {
         </span>
       </Infinite_Horizontal_Slider>
 
-      <section className={`bg-black w-screen !p-[2px] overflow-hidden`}>
-        <h1 className='text-4xl'>Discover</h1>
+      <section className={`bg-black p-10 w-screen !p-[2px] overflow-hidden`}>
+        <h1 className="text-4xl">Discover</h1>
         <div className="flex justify-evenly gap-5 p-6 flex-wrap">
           {[...Array(4)].map((_, index) => (
             <div
@@ -123,7 +122,7 @@ function Page() {
         </div>
       </section>
 
-      <section className="flex relative gap-6 h-[80vh] md:h-[60vh] bg-gray-900 md:bg-black">
+      <section className="flex  p-10 relative gap-6 h-[80vh] md:h-[60vh] bg-gray-900 md:bg-black">
         {/*  bg-gradient-to-r from-gray-500 to-gray-900 p-6 */}
         <div className="flex-1 flex-grow relative w-full min-h-1 md:hidden">
           <Image
@@ -158,7 +157,7 @@ function Page() {
         </div>
       </section>
 
-      <section className="flex h-[90vh] gap-5 bg-black md:flex-col">
+      <section className="flex p-10 h-[90vh] gap-5 bg-black md:flex-col">
         {/* Single large image with overlay */}
         <div className="relative flex-1 overflow-hidden rounded-2xl">
           <Image
@@ -189,7 +188,7 @@ function Page() {
         </div>
       </section>
 
-      <section className="w-full flex flex-col items-center bg-black shadow-lg m-0">
+      <section className="w-full p-10  flex flex-col items-center bg-black shadow-lg m-0">
         <Testimonials />
       </section>
 

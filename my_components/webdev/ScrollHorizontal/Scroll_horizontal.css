@@ -25,3 +25,9 @@
 .animate-scroll-reverse {
   animation: scroll-reverse 50s linear infinite;
 }
+
+/* Pause animation on hover */
+.animate-scroll:hover,
+.animate-scroll-reverse:hover {
+  animation-play-state: paused;
+}
