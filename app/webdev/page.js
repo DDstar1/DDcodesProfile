@@ -19,8 +19,9 @@ function Page() {
         <h1 className="text-[150px] md:!text-6xl p-0 m-2 !mt-7 text-center">
           hi, i'm alex
         </h1>
-        <div className="flex md:flex-col md:justify-end md:items-center md:h-full gap-2 mt-10 justify-around">
-          <div className="md:[text-shadow:2px_2px_8px_black] text-white flex-1 z-30 text-2xl md:text-center font-semibold px-5">
+        <div className="flex md:flex-col  md:justify-around md:items-around md:h-[75vh] gap-2 mt-10 justify-around">
+          <div className="md:[text-shadow:4px_4px_12px_black] relative text-white flex-1 z-30 text-2xl md:text-center font-semibold px-5">
+            <div className="absolute inset-0 hidden md:block bg-white/10 backdrop-blur-sm rounded-3xl border border-white/20 -z-10"></div>
             A 3D Designer passionate about crafting bold and memorable visuals.
             I bring ideas to life with precision, creativity, and attention to
             detail—turning concepts into stunning 3D experiences. 🚀

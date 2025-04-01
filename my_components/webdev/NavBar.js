@@ -37,7 +37,7 @@ const MobileNavBar = () => {
   function NavButton() {
     return (
       <button
-        className="h-full w-6 absolute text-black left-1/2 z-50 bg-black -translate-x-1/2 focus:outline-none"
+        className="h-full w-6 absolute  left-1/2 z-50 bg-black -translate-x-1/2 focus:outline-none"
         onClick={() => setIsOpen(!isOpen)}
         aria-label="Toggle menu"
         aria-expanded={isOpen}
@@ -64,12 +64,12 @@ const MobileNavBar = () => {
   }
   return (
     <>
-      <div className="hidden absolute -right-1 top-0 z-40 bg-black  h-12 w-14 rounded-l-full md:block">
+      <div className="hidden absolute -right-1 top-0 z-50 bg-black  h-12 w-14 rounded-l-full md:block">
         {" "}
         <NavButton />
       </div>
       <div
-        className={`hidden absolute right-0 top-0 z-30 bg-white h-[40vh] w-[50vw] rounded-l-[24px] md:block transition-all duration-500 ${
+        className={`hidden absolute text-black right-0 top-0 z-40 bg-white h-[40vh] w-[50vw] rounded-l-[24px] md:block transition-all duration-500 ${
           isOpen ? "translate-x-0" : "translate-x-[100%]"
         }`}
       >
@@ -80,7 +80,7 @@ const MobileNavBar = () => {
               key={index}
               to={data.to}
               smooth={true}
-              duration={data.duration}
+              duration={500 + 500 * index}
               className="cursor-pointer hover:text-purple-600 transition-colors"
             >
               {data.text}
