@@ -37,7 +37,7 @@ const MobileNavBar = () => {
   function NavButton() {
     return (
       <button
-        className="h-full w-6 absolute left-1/2 z-50 bg-black -translate-x-1/2 focus:outline-none"
+        className="h-full w-6 absolute text-black left-1/2 z-50 bg-black -translate-x-1/2 focus:outline-none"
         onClick={() => setIsOpen(!isOpen)}
         aria-label="Toggle menu"
         aria-expanded={isOpen}
