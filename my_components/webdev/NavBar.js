@@ -64,12 +64,12 @@ const MobileNavBar = () => {
   }
   return (
     <>
-      <div className="hidden absolute -right-1 top-0 z-50 bg-black  h-12 w-14 rounded-l-full md:block">
+      <div className="hidden fixed -right-1 top-0 z-50 bg-black  h-12 w-14 rounded-l-full md:block">
         {" "}
         <NavButton />
       </div>
       <div
-        className={`hidden absolute text-black right-0 top-0 z-40 bg-white h-[40vh] w-[50vw] rounded-l-[24px] md:block transition-all duration-500 ${
+        className={`hidden fixed text-black right-0 top-0 z-40 bg-white h-[40vh] w-[50vw] rounded-l-[24px] md:block transition-all duration-500 ${
           isOpen ? "translate-x-0" : "translate-x-[100%]"
         }`}
       >
@@ -94,7 +94,7 @@ const MobileNavBar = () => {
 
 const DesktopNavBar = () => {
   return (
-    <div className="w-screen md:hidden text-2xl py-3 bg-white rounded-b-[50px] text-black flex absolute top-0 z-40 capitalize justify-evenly">
+    <div className="w-screen md:hidden text-2xl py-3 bg-white rounded-b-[50px] text-black flex fixed top-0 z-40 capitalize justify-evenly">
       {link_data.map((data, index) => (
         <Link
           key={index}

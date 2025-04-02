@@ -13,22 +13,22 @@ function Page() {
   return (
     <main className="bg-black relative w-screen overflow-clip m-0 p-0">
       <NavBar />
-      <section className="relative h-screen w-screen min-h-screen py-12 overflow-hidden bg-gradient-to-t from-black via-purple-900 to-red-600">
+      <section className="relative flex flex-col h-screen w-screen min-h-screen py-12 overflow-hidden bg-gradient-to-t from-black via-purple-900 to-red-600">
         <MagneticImage src="/webdev/cartoon_head.png" alt="Magnetic Image" />
 
         <h1 className="text-[150px] md:!text-6xl p-0 m-2 !mt-7 text-center">
           hi, i'm alex
         </h1>
-        <div className="flex md:flex-col  md:justify-around md:items-around md:h-[75vh] gap-2 mt-10 justify-around">
-          <div className="md:[text-shadow:4px_4px_12px_black] relative text-white flex-1 z-30 text-2xl md:text-center font-semibold px-5">
+        <div className="flex flex-1 md:flex-col  md:justify-between md:items-around  gap-2 mt-10 justify-around">
+          <div className=" p-5 md:[text-shadow:4px_4px_12px_black] relative text-white flex-1 z-30 text-2xl md:text-center font-semibold px-5">
             <div className="absolute inset-0 hidden md:block bg-white/10 backdrop-blur-sm rounded-3xl border border-white/20 -z-10"></div>
             A 3D Designer passionate about crafting bold and memorable visuals.
             I bring ideas to life with precision, creativity, and attention to
             detail—turning concepts into stunning 3D experiences. 🚀
           </div>
           <div className=" flex-1"></div>
-          <div className=" flex flex-1 justify-center items-center z-30">
-            <button className="rounded-full mt-6 px-8 py-4 text-white font-bold text-xl bg-gradient-to-r from-pink-500 via-purple-500 to-blue-500 shadow-lg hover:scale-105 transition-all">
+          <div className=" flex flex-1 justify-center md:items-end items-start z-30">
+            <button class="animated-gradient rounded-full mt-6 px-8 py-4 text-white font-bold text-xl shadow-lg">
               Explore My Work
             </button>
           </div>
@@ -167,7 +167,7 @@ function Page() {
         </div>
 
         {/* Contact Form */}
-        <div className="flex-1 bg-white relative z-30 rounded-3xl p-6 shadow-md">
+        <div className="flex-1 bg-white w-[80%] relative z-30 rounded-3xl p-6 shadow-md">
           <Form />
         </div>
       </section>

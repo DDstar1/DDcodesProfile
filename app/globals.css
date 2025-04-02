@@ -81,3 +81,22 @@ h1 {
     top: calc(100px + var(--index, 0) * 20px);
   }
 }
+
+@keyframes gradientShift {
+  0% {
+    background: linear-gradient(to right, #ec4899, #8b5cf6, #3b82f6);
+  }
+  100% {
+    background: linear-gradient(to right, #3b82f6, #8b5cf6, #ec4899);
+  }
+}
+
+.animated-gradient {
+  background: linear-gradient(to right, #ec4899, #8b5cf6, #3b82f6);
+  transition: all 0.5s ease-in-out, transform 0.3s ease-in-out;
+}
+
+.animated-gradient:hover {
+  background: linear-gradient(to right, #3b82f6, #8b5cf6, #ec4899);
+  transform: scale(1.05);
+}
