@@ -82,6 +82,7 @@ const MobileNavBar = () => {
               smooth={true}
               duration={500 + 500 * index}
               className="cursor-pointer hover:text-purple-600 transition-colors"
+              onClick={() => setIsOpen(false)}
             >
               {data.text}
             </Link>
@@ -94,7 +95,7 @@ const MobileNavBar = () => {
 
 const DesktopNavBar = () => {
   return (
-    <div className="w-screen md:hidden text-2xl py-3 bg-white rounded-b-[50px] text-black flex fixed top-0 z-40 capitalize justify-evenly">
+    <div className="w-screen md:hidden text-2xl py-3 bg-white rounded-b-[50px] text-black flex absolute left-0 top-0 z-40 capitalize justify-evenly">
       {link_data.map((data, index) => (
         <Link
           key={index}

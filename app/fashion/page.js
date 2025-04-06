@@ -67,7 +67,7 @@ function Page() {
         </h1>
         <div
           ref={firstRef}
-          className="absolute left-0 md:flex-col bottom-0 w-full flex items-center justify-around p-6 bg-black bg-opacity-80 text-white"
+          className="absolute left-0 md:flex-col bottom-0 w-full flex items-center justify-around p-6 bg-black/70 text-white"
         >
           <h1 className="md:hidden max-w-lg text-7xl font-bold text-center">
             Addicted to fashion
