@@ -39,7 +39,7 @@ function FixedBgs() {
             src="/fashion/bg.jpg"
             alt="Background Image"
             layout="fill"
-            objectFit="cover"
+            className="object-cover"
             priority
           />
         </div>
@@ -49,7 +49,7 @@ function FixedBgs() {
             src="/fashion/bg2.jpg"
             alt="Background Image"
             layout="fill"
-            objectFit="cover"
+            className="object-cover"
             priority
           />
         </div>

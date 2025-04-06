@@ -24,9 +24,8 @@ function FixedBgs({ firstRefIsVisible, lastRefIsVisible }) {
         src="/fashion/bg.jpg"
         alt="Background 1"
         layout="fill"
-        objectFit="cover"
         priority
-        className={`absolute transition-opacity duration-500 ${
+        className={`absolute transition-opacity object-cover duration-500 ${
           firstRefIsVisible && !lastRefIsVisible ? "opacity-100" : "opacity-0"
         }`}
       />
@@ -36,9 +35,8 @@ function FixedBgs({ firstRefIsVisible, lastRefIsVisible }) {
         src="/fashion/bg2.jpg"
         alt="Background 2"
         layout="fill"
-        objectFit="cover"
         priority
-        className={`absolute transition-opacity duration-500 ${
+        className={`absolute transition-opacity object-cover duration-500 ${
           lastRefIsVisible ? "opacity-100" : "opacity-0"
         }`}
       />
@@ -94,7 +92,7 @@ function Page() {
         </span>
       </Infinite_Horizontal_Slider>
 
-      <section className={`bg-black p-10 w-screen !p-[2px] overflow-hidden`}>
+      <section className={`bg-black p-10 w-screen !md:p-[2px] overflow-hidden`}>
         <h1 className="text-4xl">Discover</h1>
         <div className="flex justify-evenly gap-5 p-6 flex-wrap">
           {[...Array(4)].map((_, index) => (
@@ -129,8 +127,7 @@ function Page() {
             src="/fashion/male_model.jpg"
             alt="Fashion"
             layout="fill"
-            objectFit="cover"
-            className="rounded-2xl object-top"
+            className="rounded-2xl object-top object-cover"
           />
         </div>
         <div className="flex-1 flex flex-col justify-evenly ">
@@ -138,8 +135,7 @@ function Page() {
             src="/fashion/male_model.jpg"
             alt="Fashion"
             layout="fill"
-            objectFit="cover"
-            className={`rounded-2xl object-top hidden md:flex ${styles.maskImage}`}
+            className={`rounded-2xl object-top object-cover hidden md:flex ${styles.maskImage}`}
           />
           <div className="md:absolute p-3 inset-0  md:bg-black/40 flex-1 flex flex-col justify-evenly md:justify-end">
             <h1 className="text-7xl md:text-5xl md:self-start md:w-[80%] md:text-left font-bold text-center text-gradient">
@@ -164,8 +160,7 @@ function Page() {
             src="/fashion/female_model.jpg"
             alt="Female Fashion Model"
             layout="fill"
-            objectFit="cover"
-            className={`rounded-2xl object-top ${styles.maskImage}`}
+            className={`rounded-2xl object-top object-cover ${styles.maskImage}`}
           />
           {/* Overlay for the single image */}
           <div className="absolute p-3 inset-0 bg-black/50 flex flex-col items-end justify-end">

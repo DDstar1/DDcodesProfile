@@ -1,0 +1,56 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+  --neon-color: #bc13fe; /* --neon-color: #510CEF; */
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  /* color: var(--foreground);
+  background: var(--background); */
+  color: white;
+  font-family: Arial, Helvetica, sans-serif;
+  background: rgb(69, 30, 165);
+  background: radial-gradient(circle, #451ea5 0%, rgba(27, 27, 33, 1) 100%);
+  background-attachment: fixed; /* This makes the gradient fixed */
+  background-size: cover; /* Ensures the gradient covers the entire viewport */
+  background-position: center;
+  scrollbar-width: thin; /* For Firefox */
+  
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+div {
+  scrollbar-width: thin; /* For Firefox */
+}
+
+
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.animate-shimmer {
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+  opacity: 0.6;
+}

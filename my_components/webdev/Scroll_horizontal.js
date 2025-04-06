@@ -22,9 +22,8 @@ const ScrollHorizontal = ({ reverse = false, className = "", size = "md" }) => {
             src={`/brand_logos/SVG-${index + 1}.svg`}
             alt={`Brand Logo ${index + 1}`}
             layout="fill"
-            objectFit="cover"
             priority
-            className="absolute transition-opacity duration-500"
+            className="absoluteobject-cover transition-opacity duration-500"
           />
         </div>
       ))}

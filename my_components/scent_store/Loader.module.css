@@ -1,0 +1,44 @@
+.neon_effect {
+  margin: 0;
+  font-size: 120px; /* Increased font size */
+  font-weight: bold; /* Bold weight */
+  border: 0.05em solid #fff; /* Thicker border */
+  border-radius: 0.5em;
+  padding: 0.5em; /* Increased padding */
+  text-shadow: 0 0 5px #fff, 0 0 8px #fff, 0 0 12px #fff,
+    0 0 20px var(--neon-color), 0 0 30px var(--neon-color),
+    0 0 50px var(--neon-color), 0 0 60px var(--neon-color),
+    0 0 80px var(--neon-color);
+  box-shadow: 0 0 5px #fff, 0 0 5px #fff, 0 0 40px var(--neon-color),
+    0 0 45px var(--neon-color), 0 0 60px var(--neon-color),
+    inset 0 0 30px var(--neon-color);
+  animation: pulsate 2s infinite alternate;
+  transition: transform 0.3s; /* Smooth transform */
+}
+
+@keyframes pulsate {
+  0% {
+    text-shadow: 0 0 2px #fff, 0 0 4px #fff, 0 0 6px #fff,
+      0 0 15px var(--neon-color), 0 0 23px var(--neon-color),
+      0 0 36px var(--neon-color), 0 0 42px var(--neon-color),
+      0 0 67px var(--neon-color);
+  }
+
+  100% {
+    text-shadow: 0 0 5px #fff, 0 0 9px #fff, 0 0 18px #fff,
+      0 0 36px var(--neon-color), 0 0 49px var(--neon-color),
+      0 0 65px var(--neon-color), 0 0 89px var(--neon-color),
+      0 0 140px var(--neon-color);
+  }
+}
+
+.neon_effect:hover {
+  transform: scale(1.05); /* Slightly enlarge on hover */
+}
+
+@media (max-width: 600px) {
+  .neon_effect {
+    font-size: 80px; /* Adjusted for smaller screens */
+    padding: 0.3em; /* Adjusted padding */
+  }
+}
