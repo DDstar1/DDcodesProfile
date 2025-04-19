@@ -24,9 +24,8 @@ function FixedBgs({ firstRefIsVisible, lastRefIsVisible }) {
         src="/fashion/bg.jpg"
         alt="Background 1"
         layout="fill"
-        objectFit="cover"
         priority
-        className={`absolute transition-opacity duration-500 ${
+        className={`absolute transition-opacity object-cover duration-500 ${
           firstRefIsVisible && !lastRefIsVisible ? "opacity-100" : "opacity-0"
         }`}
       />
@@ -36,9 +35,8 @@ function FixedBgs({ firstRefIsVisible, lastRefIsVisible }) {
         src="/fashion/bg2.jpg"
         alt="Background 2"
         layout="fill"
-        objectFit="cover"
         priority
-        className={`absolute transition-opacity duration-500 ${
+        className={`absolute transition-opacity object-cover duration-500 ${
           lastRefIsVisible ? "opacity-100" : "opacity-0"
         }`}
       />
@@ -60,14 +58,14 @@ function Page() {
   return (
     <>
       <FixedBgs firstRefIsVisible={firstInView} lastRefIsVisible={lastInView} />
-      <section className={`relative w-screen h-screen`}>
-        <Nav />
-        <h1 className="hidden text-4xl font-bold fixed inset-0 md:flex justify-center items-center">
+      <Nav />
+      <section className={`relative p-10 w-screen h-screen`}>
+        <h1 className="hidden h-full text-4xl font-bold fixed inset-0 md:flex justify-center items-center">
           <CurvedText my_letter={"Addicted To Fashion "} spacing={100} />
         </h1>
         <div
           ref={firstRef}
-          className="absolute left-0 md:flex-col bottom-0 w-full flex items-center justify-around p-6 bg-black bg-opacity-80 text-white"
+          className="absolute left-0 md:flex-col bottom-0 w-full flex items-center justify-around p-6 bg-black/70 text-white"
         >
           <h1 className="md:hidden max-w-lg text-7xl font-bold text-center">
             Addicted to fashion
@@ -94,9 +92,9 @@ function Page() {
         </span>
       </Infinite_Horizontal_Slider>
 
-      <section className={`bg-black w-screen overflow-hidden`}>
-        <h1>Discover</h1>
-        <section className="flex justify-evenly gap-5 p-6 flex-wrap">
+      <section className={`bg-black p-10 w-screen !md:p-[2px] overflow-hidden`}>
+        <h1 className="text-4xl">Discover</h1>
+        <div className="flex justify-evenly gap-5 p-6 flex-wrap">
           {[...Array(4)].map((_, index) => (
             <div
               key={index}
@@ -119,18 +117,17 @@ function Page() {
               </div>
             </div>
           ))}
-        </section>
+        </div>
       </section>
 
-      <section className="flex relative gap-6 h-[80vh] md:h-[60vh] bg-gray-900 md:bg-black">
+      <section className="flex  p-10 relative gap-6 h-[80vh] md:h-[60vh] bg-gray-900 md:bg-black">
         {/*  bg-gradient-to-r from-gray-500 to-gray-900 p-6 */}
         <div className="flex-1 flex-grow relative w-full min-h-1 md:hidden">
           <Image
             src="/fashion/male_model.jpg"
             alt="Fashion"
             layout="fill"
-            objectFit="cover"
-            className="rounded-2xl object-top"
+            className="rounded-2xl object-top object-cover"
           />
         </div>
         <div className="flex-1 flex flex-col justify-evenly ">
@@ -138,8 +135,7 @@ function Page() {
             src="/fashion/male_model.jpg"
             alt="Fashion"
             layout="fill"
-            objectFit="cover"
-            className={`rounded-2xl object-top hidden md:flex ${styles.maskImage}`}
+            className={`rounded-2xl object-top object-cover hidden md:flex ${styles.maskImage}`}
           />
           <div className="md:absolute p-3 inset-0  md:bg-black/40 flex-1 flex flex-col justify-evenly md:justify-end">
             <h1 className="text-7xl md:text-5xl md:self-start md:w-[80%] md:text-left font-bold text-center text-gradient">
@@ -157,15 +153,14 @@ function Page() {
         </div>
       </section>
 
-      <section className="flex h-[90vh] gap-5 bg-black md:flex-col">
+      <section className="flex p-10 h-[90vh] gap-5 bg-black md:flex-col">
         {/* Single large image with overlay */}
         <div className="relative flex-1 overflow-hidden rounded-2xl">
           <Image
             src="/fashion/female_model.jpg"
             alt="Female Fashion Model"
             layout="fill"
-            objectFit="cover"
-            className={`rounded-2xl object-top ${styles.maskImage}`}
+            className={`rounded-2xl object-top object-cover ${styles.maskImage}`}
           />
           {/* Overlay for the single image */}
           <div className="absolute p-3 inset-0 bg-black/50 flex flex-col items-end justify-end">
@@ -188,7 +183,7 @@ function Page() {
         </div>
       </section>
 
-      <section className="w-full flex h-42 flex-col items-center bg-black shadow-lg m-0">
+      <section className="w-full p-10  flex flex-col items-center bg-black shadow-lg m-0">
         <Testimonials />
       </section>
 

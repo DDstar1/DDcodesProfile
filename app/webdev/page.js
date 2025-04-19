@@ -13,19 +13,22 @@ function Page() {
   return (
     <main className="bg-black relative w-screen overflow-clip m-0 p-0">
       <NavBar />
-      <section className="relative h-screen w-screen  py-12 overflow-hidden bg-gradient-to-t from-black via-purple-900 to-red-600">
+      <section className="relative flex flex-col h-screen w-screen min-h-screen py-12 overflow-hidden bg-gradient-to-t from-black via-purple-900 to-red-600">
         <MagneticImage src="/webdev/cartoon_head.png" alt="Magnetic Image" />
 
-        <h1 className="text-[150px] p-0 m-2 text-center">hi, i'm alex</h1>
-        <div className="flex gap-2 mt-10 justify-around">
-          <div className="text-white flex-1 z-30 text-2xl font-semibold px-5">
+        <h1 className="text-[150px] md:!text-6xl p-0 m-2 !mt-7 text-center">
+          hi, i'm alex
+        </h1>
+        <div className="flex flex-1 md:flex-col  md:justify-between md:items-around  gap-2 mt-10 justify-around">
+          <div className=" p-5 md:[text-shadow:4px_4px_12px_black] relative text-white flex-1 z-30 text-2xl md:text-center font-semibold px-5">
+            <div className="absolute inset-0 hidden md:block bg-white/10 backdrop-blur-sm rounded-3xl border border-white/20 -z-10"></div>
             A 3D Designer passionate about crafting bold and memorable visuals.
             I bring ideas to life with precision, creativity, and attention to
             detail—turning concepts into stunning 3D experiences. 🚀
           </div>
           <div className=" flex-1"></div>
-          <div className=" flex flex-1 justify-center items-center z-30">
-            <button className="rounded-full mt-6 px-8 py-4 text-white font-bold text-xl bg-gradient-to-r from-pink-500 via-purple-500 to-blue-500 shadow-lg hover:scale-105 transition-all">
+          <div className=" flex flex-1 justify-center md:items-end items-start z-30">
+            <button class="animated-gradient rounded-full mt-6 px-8 py-4 text-white font-bold text-xl shadow-lg">
               Explore My Work
             </button>
           </div>
@@ -36,12 +39,18 @@ function Page() {
         <ScrollHorizontal size="lg" reverse={true} className="mb-[10px]" />
         {/* <ScrollHorizontal size="lg" /> */}
       </section>
-      <section className="bg-gradient-to-b from-purple-500 to-black">
-        <div className=" text-center flex flex-col items-center justify-evenly w-screen gap-10 h-[70vh]  relative">
+      <section
+        id="about"
+        className="bg-gradient-to-b  from-purple-500 to-black"
+      >
+        <div className=" text-justify flex pt-10 flex-col md:justify-start items-center justify-evenly w-screen gap-10 min-h-[80vh] relative">
           <SplashShapeDivider color1="black" />
-          <h2 className="text-9xl font-bold text-white top-1">About Me</h2>
-          <div className="leading-10 text-white font-semibold text-xl">
-            <p className="max-w-[50%] mx-auto">
+          <h2 className="text-9xl md:text-6xl font-bold text-white z-20 relative mt-2 top-1">
+            About Me
+          </h2>
+          <div className="leading-10 w-[70%] md:w-[95%] text-white md:text-center relative z-20 font-semibold  text-xl">
+            <div className="absolute inset-0 hidden md:block bg-white/10 backdrop-blur-sm rounded-3xl border border-white/20 -z-10"></div>
+            <p className=" mx-auto">
               With over five years of experience in design, I specialize in
               branding, web design, and user experience. My passion lies in
               crafting visually stunning and highly functional designs that not
@@ -51,21 +60,40 @@ function Page() {
               on transforming ideas into reality.
             </p>
 
-            <p className="max-w-[50%] mx-auto mt-4">
+            <p className="mx-auto mt-4">
               Let’s create something amazing together—something that not only
               looks great but also leaves a lasting impression. Ready to bring
               your vision to life? Let’s make it happen.
             </p>
           </div>
 
-          <Floating_3D />
+          <Floating_3D
+            img_src="/webdev/floating3d1.png"
+            from_left={true}
+            top_animate_pos={["0%", "10%"]}
+          />
+          <Floating_3D
+            img_src="/webdev/floating3d2.png"
+            from_left={false}
+            top_animate_pos={["0%", "10%"]}
+          />
+          <Floating_3D
+            img_src="/webdev/floating3d3.png"
+            from_left={true}
+            top_animate_pos={["60%", "70%"]}
+          />
+          <Floating_3D
+            img_src="/webdev/floating3d4.png"
+            from_left={false}
+            top_animate_pos={["60%", "70%"]}
+          />
         </div>
 
-        <div className="py-16 text-white">
-          <h2 className="text-6xl text-left relative font-bold px-20">
+        <div id="expertise" className="py-10 text-white">
+          <h2 className="text-6xl md:text-5xl text-left relative md:sticky md:top-6 font-bold md:px-5 px-20">
             My Expertise
           </h2>
-          <div className="grid grid-cols-2 gap-12 px-20 mt-12">
+          <div className="flex flex-wrap items-center justify-center md:flex-col md:gap-5 gap-12  md:px-5 px-20 mt-12">
             {[
               {
                 name: "3D Modelling",
@@ -89,8 +117,8 @@ function Page() {
               },
             ].map((service, index) => (
               <div
-                key={index}
-                className="p-8 rounded-3xl shadow-lg border border-white border-opacity-20 bg-gray-800 bg-opacity-10 backdrop-blur-lg transition-all hover:scale-105 hover:bg-opacity-20 relative"
+                style={{ "--index": index }}
+                className="p-8 max-w-[45%] md:max-w-[100%] md:sticky rounded-3xl shadow-lg border border-white border-opacity-20 bg-gray-800 bg-opacity-10 backdrop-blur-lg transition-all hover:scale-105 hover:bg-opacity-20 relative custom-top"
               >
                 <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-purple-500/30 to-red-500/10 opacity-20"></div>
                 <h3 className="text-3xl font-semibold relative z-10">
@@ -104,24 +132,33 @@ function Page() {
           </div>
         </div>
       </section>
-      <section className="relative bg-gradient-to-t from-black via-purple-900 to-red-500 px-20">
+      <section
+        id="projects"
+        className="relative bg-gradient-to-t from-black via-purple-900 to-red-500 md:px-5 pt-10 px-20"
+      >
         <SplashShapeDivider color1="black" />
 
-        <h1 className="text-6xl text-right font-bold">Projects</h1>
+        <h1 className="!text-5xl text-left !sticky top-10 font-bold">
+          Projects
+        </h1>
         <Projects />
       </section>
-      <section className="bg-black">
-        <h1 className="text-6xl font-bold text-white">
+      <section id="testimonials" className="bg-black pt-10">
+        <h1 className="text-6xl md:text-5xl text-center font-bold text-white">
           What Clients are Saying
         </h1>
         <ScrollTestimonialHorizontal size="md" />
         {/* <ScrollTestimonialHorizontal /> */}
       </section>
-      <section className="flex relative flex-row text-black overflow-hidden gap-6 px-12 bg-gray-300 w-screen  items-center">
+      <section
+        id="contact"
+        className="flex relative flex-row md:flex-col text-black overflow-hidden gap-6 md:px-5 px-12 pt-10 bg-gray-300 w-screen  items-center"
+      >
         <SplashShapeDivider color1="black" />
         {/* Contact Info */}
-        <div className="flex flex-1 flex-col justify-center items-center text-center p-4">
-          <p className="text-7xl font-semibold px-4 py-2 rounded-lg">
+        <div className="flex flex-1 flex-col justify-center items-center text-center p-4 pt-10">
+          <p className="text-7xl md:text-4xl relative z-10  font-semibold px-4 py-2 overflow-hidden rounded-full">
+            <div className="absolute inset-0 hidden md:block md:bg-gray-300/5  backdrop-blur-sm -z-10"></div>
             Let's Get in Touch
           </p>
           <p className="text-gray-600 mt-2 underline">
@@ -130,16 +167,15 @@ function Page() {
         </div>
 
         {/* Contact Form */}
-        <div className="flex-1 bg-white relative z-30 rounded-3xl p-6 shadow-md">
+        <div className="flex-1 bg-white w-[80%] relative z-30 rounded-3xl p-6 shadow-md">
           <Form />
         </div>
       </section>
-      <section className="flex flex-col bg-gray-300 text-black">
-        <div className="grid grid-cols-4 gap-4">
-          {/* First Column (50% Width) - Name */}
-
-          {/* Second Column (25% Width) - Social Handles */}
-          <div className="p-4 text-sm flex flex-col items-start bg-gray-200 shadow-2xl rounded-3xl z-10 justify-start gap-2">
+      <section className="flex flex-col pt-10 relative bg-gray-400 p-3 text-black">
+        <SplashShapeDivider color1="#d1d5dc" />
+        <div className="flex gap-4 md:flex-col ">
+          {/* Social Handles - Top on mobile, first column on desktop */}
+          <div className="w-[40%]  md:w-[100%] p-4 text-sm flex flex-col items-start bg-gray-200 shadow-2xl rounded-3xl z-10 justify-start gap-2">
             <h3 className="text-lg font-semibold text-left w-full">Socials</h3>
             <p>📸 Instagram: @alexturner_ig</p>
             <p>📘 Facebook: Alex Turner</p>
@@ -147,24 +183,30 @@ function Page() {
             <p>🔗 LinkedIn: linkedin.com/in/alexturner</p>
             <p>🎨 Behance: behance.net/alexturner</p>
           </div>
-
-          {/* Third Column (25% Width) - Location */}
-          <div className="p-4 text-sm flex flex-col items-start bg-gray-200 shadow-2xl rounded-3xl z-10 justify-start gap-2">
-            <h3 className="text-lg font-semibold text-left w-full">Location</h3>
-            <p>Africa, Nigeria</p>
-            <p>Lagos State, Ikeja</p>
-            <p>Allen Avenue</p>
-            <p>No. 25</p>
-          </div>
-          <div className="col-span-2 text-7xl p-4 flex items-center justify-center font-bold">
-            ALEX TURNER
+          <div className="flex flex-1 gap-5">
+            {/* Location - Bottom on mobile, second column on desktop */}
+            <div className="flex-1  p-4 text-sm flex flex-col items-start bg-gray-200 shadow-2xl rounded-3xl z-10 justify-start gap-2">
+              <h3 className="text-lg font-semibold text-left w-full">
+                Location
+              </h3>
+              <p>Africa, Nigeria</p>
+              <p>Lagos State, Ikeja</p>
+              <p>Allen Avenue</p>
+              <p>No. 25</p>
+            </div>
+            <div className="flex-1 md:flex-1 text-7xl md:text-4xl p-4 text-center m-auto z-20 font-bold">
+              {/* Name - Center on mobile, spans 2 columns on desktop */}
+              ALEX TURNER
+            </div>
           </div>
         </div>
         <div className="h-32 gap-4 mt-5 flex">
-          {[5, 6, 7, 8, 9, 10].map((num) => (
+          {[5, 6, 7, 8, 9, 10].map((num, index) => (
             <div
               key={num}
-              className="relative bg-gray-200 shadow-2xl rounded-3xl flex-1"
+              className={`relative bg-gray-200 shadow-2xl rounded-3xl flex-1 ${
+                index >= 4 ? "block md:hidden" : ""
+              }`}
             >
               <Image
                 fill
