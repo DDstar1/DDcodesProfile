@@ -4,6 +4,12 @@
 @tailwind components;
 @tailwind utilities;
 
+@custom-variant 2xl (@media (max-width: 96rem));
+@custom-variant xl (@media (max-width: 80rem));
+@custom-variant lg (@media (max-width: 64rem));
+@custom-variant md (@media (max-width: 48rem));
+@custom-variant sm (@media (max-width: 40rem));
+
 :root {
   --background: #ffffff;
   --foreground: #171717;
